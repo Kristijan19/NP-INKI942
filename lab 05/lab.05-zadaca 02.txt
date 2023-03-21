@@ -1,0 +1,21 @@
+//Kristijan Kondovski INKI942
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+
+using namespace std;
+int main(int argc, char* argv[])
+{
+    char pesna[100];
+    strcpy(pesna, "Wake me up- Avicii");
+    char *p=&pesna[0];
+    cout<<"Pesna: "<<pesna<<endl;
+    cout<<"Cela sodrzina- p: "<<pesna<<endl;
+    cout<<"Pocetna pozicija- *p: "<<*p<<endl;
+    cout<<"Adresa na pocetok: "<<(long)p<<endl;
+    p+=12;
+    cout<<"Premestuvanje do imeto na izveduvacot p+12"<<endl;
+    cout<<"Sodrzina do premesten pocetok: "<<p<<endl;
+    cout<<"Adresa od koja pocnuva segasnata sodrzina: "<<(long)p<<endl;
+    return 0;
+}
