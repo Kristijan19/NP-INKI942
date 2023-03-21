@@ -1,0 +1,45 @@
+// Vo zadacata se pravi raspored za nastava od ponedelnik do nedela, ima iskoristeno switch case i cout se pisuva rasporedot za sekoj den i na krajot ni se pecati celosniot raspored. Ima iskoristeno enum funkcija, koja se odnesuva na enumeracijata, so koja se izrabotuva zadacata.
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+enum BrojDen {ponedelnik, vtornik, sreda, chetvrtok, petok,sabota,nedela, celosen};
+int main()
+{
+    BrojDen brden=celosen;
+    
+    switch (brden) {
+    
+    case ponedelnik:
+        cout<<"Raspored ponedelnik:\n1.Napredno Programiranje\n2.Matematika 2 (Vezhbi)\n";
+        break;
+    case vtornik:
+        cout<<"Raspored vtornik:\n1.Matematika 2\n";
+        break;
+    case sreda:
+        cout<<"Raspored sreda:\n1.Veb Tehnologii\n2.Veb Tehnologii (Vezhbi)\n";
+        break;
+    case chetvrtok:
+        cout<<"Raspored chetvrtok:\n1.Arhitektura i organizacija na kompjuteri\n2.Angliski jazik za specifichni celi\n3.Napredno Programiranje (Laboratoriski Vezhbi)\n";
+        break;
+    case petok:
+        cout<<"Raspored petok:\nNema Predavanja";
+        break;
+        case sabota:
+        cout<<"Raspored sabota:\nNema Predavanja";
+        break;
+        case nedela:
+        cout<<"Raspored nedela:\nNema Predavanja";
+        break;
+    case celosen:
+        cout<<"Raspored ponedelnik:\n1.Napredno Programiranje\n2.Matematika 2 (Vezhbi)\n";
+        cout<<"Raspored vtornik:\n1.Matematika 2\n";
+        cout<<"Raspored sreda:\n1.Veb Tehnologii\n2.Veb Tehnologii (Vezhbi)\n";
+        cout<<"Raspored chetvrtok:\n1.Arhitektura i organizacija na kompjuteri\n2.Angliski jazik za specifichni celi\n3.Napredno Programiranje (Laboratoriski Vezhbi)\n";
+        cout<<"Raspored petok:\nNema Predavanja";
+        cout<<"Raspored sabota:\nNema Predavanja";
+        cout<<"Raspored nedela:\nNema Predavanja";
+break;
+    }
+}

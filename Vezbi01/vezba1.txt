@@ -1,0 +1,42 @@
+//Shell implementacija, sortiranje so primena na prazni mesta,podatocite za ime,prezime i indeks se pretstaveni so aski kodovi,ni se pecatat dve nizi prvata e nesortirana niza, a vtorata e sortirana niza so primena na shell sort
+#include  <iostream> 
+using namespace std; 
+   
+// shellsort implementation
+int shellSort(int arr[], int N) 
+{ 
+    for (int gap = N/2; gap > 0; gap /= 2) 
+       { 
+    for (int i = gap; i < N; i += 1) 
+       { 
+            //sort sub lists created by applying gap 
+int temp = arr[i]; 
+ 
+int j; 
+for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) 
+arr[j] = arr[j - gap]; 
+               
+arr[j] = temp; 
+        } 
+    } 
+    return 0; 
+} 
+   
+int main() 
+{ 
+int arr[25]{(int)'K',(int)'r', (int)'i', (int)'s', (int)'t', (int)'i', (int)'j',(int) 'a', (int)'n',(int)'K', (int)'o',(int)'n',(int)'d',(int)'o',(int)'v',(int)'s',(int)'k', (int)'i',(int)'I',(int)'N',(int)'K',(int)'I',(int)'9',(int)'4',(int)'2'};
+    //Calculate size of array 
+    int N = sizeof(arr)/sizeof(arr[25] );
+  
+    cout << "Array to be sorted: \n"; 
+    for (int i=0; i<N; i++) 
+        cout << arr[i] << " "; 
+   
+    shellSort(arr, N); 
+   
+    cout << "\nArray after shell sort: \n"; 
+    for (int i=0; i<N; i++) 
+        cout << arr[i] << " "; 
+   
+    return 0; 
+}
