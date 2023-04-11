@@ -1,0 +1,69 @@
+#include <iostream> 
+#include <vector>
+#include <cmath>
+using namespace std; 
+class operations { 
+ //Deklariranje na clenovi na clasa 
+ public: 
+ int num1, num2; 
+ //Definiranje na metodi na klasa
+ public: 
+ void input() { 
+ cout << "Enter two numbers to perform operations on: \n"; 
+ cin >> num1 >> num2; 
+ cout << "\n";
+ } 
+ public: 
+ void addition() { 
+ cout << "Addition = " << num1 + num2; 
+ cout << "\n"; 
+ } 
+ void subtraction() { 
+ cout << "Subtraction = " << num1 - num2; 
+ cout << "\n"; 
+ } 
+ void multiplication() { 
+ cout << "Multiplication = " << num1 * num2; 
+ cout << "\n"; 
+ } 
+ void division() { 
+ cout << "Division = " << (float) num1 / num2; 
+ cout << "\n"; 
+ } 
+ void power() {
+     cout<<"Power = "<< (int) pow(num1,num2);
+     cout<<"\n";
+ }
+ void epower() {
+    const float e=2.7182818284590452353602874713527;
+     cout<<"e on power num1+num2 ="<< pow(e,(num1+num2));
+     cout<<"\n";
+ }
+};
+//Definiranje na main metod za pristap do clen na klasa
+int main() { 
+ cout << " ===== Program to perform basic operations using Class, in CPP ===== \n\n"; 
+ //Deklariranje na pristap do klasa operations preku clen op
+ operations op;
+ op.input(); 
+ cout<<"Enter a number in order to display one operation "<<endl;
+ cout<<" 1.addition 2.substraction 3.mupliplication 4.power 5.e on power of num1+num2 "<<endl;
+ int choise;
+ cin>>choise;
+switch(choise) // meni spored vnesen broj
+{
+	case 1:
+		op.addition(); break;
+	case 2:
+	op.subtraction();break;
+	case 3:
+	op.multiplication();break;
+	case 4:
+	op.power();break;	
+	case 5:
+		op.epower();break;
+	default:
+		cout<<" NO OPERATION WITH THAT NUMBER"<<endl;break;
+}
+ return 0; 
+}

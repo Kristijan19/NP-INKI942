@@ -1,0 +1,140 @@
+#include<iostream>
+#include<stdio.h>
+#include<stdlib.h>
+
+using namespace std;
+
+class date
+{
+    private:
+        int day, month, year, hour, minute, second;
+    public:
+        date(){}
+        friend void operator>>(istream &in, date &d);   // Friend funkcija se koristi ako vo klasata nesto ne e definirano, znaci postoi na drugo mesto za da mozite da go povikate i iskoristite
+        friend void operator<<(ostream &out, date &d)  // Ovaa funkcija ima pravo da pristapi do site privatni i zastiteni clenovi na klasata
+        {
+                out<<"\n Date : ";
+                out<<d.day;
+                out<<"/";
+                out<<d.month;
+                out<<"/";
+                out<<d.year;
+                out<<":";
+                out<<d.hour;
+                out<<":";
+                out<<d.minute;
+                out<<":";
+                out<<d.second;
+                
+                
+        }
+        ~ date(){}
+};
+void operator>>(istream &in, date &d) // Overloading operator, znaci koga vo C++ mozi da se promeni nacinot na koj sto rabotat operatorite za tipovi definirani od korisnikot kako strukturi i objekti
+{
+        cout<<"\n Enter Day : ";
+        in>>d.day;
+        cout<<"\n Enter Month : ";
+        in>>d.month;
+        cout<<"\n Enter Year : ";
+        cin>>d.year;
+        cout<<"\n Enter hour : ";
+        in>>d.hour;
+        cout<<"\n Enter minute : ";
+        in>>d.minute;
+        cout<<"\n Enter second : ";
+        in>>d.second;
+        
+        cout<<"\n ------------------";
+        switch(d.month)
+        {
+                case 1:    //January
+                case 3:    //March
+                case 5:    //May
+                case 7:    //July
+                case 8:    //August
+                case 10:   //October
+                case 12:   //December
+                        if(d.day>31)
+                        {
+                                cout<<"\n Invalid Days ";
+                                exit(0);
+                        }
+                        break;
+                case 4:   //April
+                case 6:   //June
+                case 9:   //September
+                case 11:  //November
+                        if(d.day>30)
+                        {
+                                cout<<"\n Invalid Days ";
+                                exit(0);
+                        }
+                        break;
+                case 2:
+                        // Funkcija za mesec fevruari,se proveruva dali godinata e prestapna ili ne
+                        if((d.year%100!=0&&d.year%4==0)||(d.year%400==0))   
+                        {
+                                if(d.day>29)
+                                {
+                                        cout<<"\n Invalid Days ";
+                                        exit(0);
+                                }
+                        }
+                        else
+                        {
+                                if(d.day>28)
+                                {
+                                        cout<<"\n Invalid Days ";
+                                        exit(0);
+                                }
+                        }
+                        break;
+        }
+switch (d.month)
+{
+    case 1: //January
+    case 2: //February
+    case 3: //March
+    case 4: //April
+    case 5: //May
+    case 6: //June
+    case 7: //July
+    case 8: //August
+    case 9: //September
+    case 10: //October
+    case 11: //November
+    case 12: //December
+    break;
+    default:cout<<"Invalid month";
+}
+if (d.second>60)
+
+{
+    int x;
+    x=d.second/60;
+    d.minute=d.minute+x;
+    d.second=d.second-x*60;
+}
+if (d.minute>60)
+{
+    int y;
+    y=d.minute/60;
+    d.hour=d.hour+y;
+    d.minute=d.minute=y*60;
+}
+   if(d.hour>24)
+   {
+       cout<<"Pogresen vnes"<<endl;
+   }
+    
+}
+int main()
+{
+        date d;
+        cout<<"\n Enter Date \n";
+        cout<<"\n ------------------";
+        cin>>d;
+        cout<<d;
+        return 0;
+}

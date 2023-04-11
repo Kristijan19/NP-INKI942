@@ -1,0 +1,74 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+// Definiranje na klasa shape za da moze da se definira konceptot na hierarhisko nasleduvanje vo CPP
+class Shape {
+    // Clenovite-promenlivi ni se dostapni vo ramkite na klasata i nejzinite decentni klasi
+    protected:
+        float width, height;
+
+    //Javnite clenovi se dostapni sekade
+    public:
+        void setDimensions(float w, float h) {
+            cout << "Postavuvanje dimenzii koristejki ja klasata: Shape\n";
+            cout << "Dimenziite se: " << w << " and " << h << "\n\n";
+
+            width = w;
+            height = h;
+        }
+};
+
+//Klasata Rectangle ja nasleduva klasata Shape i karakteristikite
+class Rectangle: public Shape {
+  
+    public: float area() 
+    {
+        return (width * height);
+    }
+     public: float obem() 
+     {
+         return (width + height);
+     }
+};
+
+//Klasata Triangle ja nasleduva klasata Shape i karakteristikite
+class Triangle: public Shape {
+   
+    private:float h;
+    public: float area()
+    {
+        return (width * height / 2);
+    }
+    public: float dolzina()
+    {
+        h=sqrt(pow(width,2)+pow(height,2));
+        return (h);
+    }
+    public: float obem()
+    {
+        return(width+height+h+dolzina());
+    }
+};
+
+int main() {
+
+    cout << "\n\nWelcome to Studytonight :-)\n\n\n";
+    cout << " =====  Program to demonstrate the concept of Hierarchial Inheritence in CPP  ===== \n\n";
+
+    //Declaring the Class objects to access the class members
+    Rectangle rectangle;
+    Triangle triangle;
+
+    rectangle.setDimensions(94, 2);
+    triangle.setDimensions(9, 42);
+
+    cout << "\n Povrsina na pravoagolnik so koristenje na Rectangle klasa : " << rectangle.area() << "\n\n\n";
+    cout << "Povrsina na triagolnik presmetana so koristenje na triangle klasata: " << triangle.area() << "\n\n\n";
+     cout << "\n Obem na pravoagolnikot prersmetan so koristenje na Rectangle klasa:" <<rectangle.obem() << "\n\n\n";
+      cout <<"Obem na triagolnik presmetan so koristenje na Triangle klasa:" <<triangle.obem();
+    cout << "\n\n\n";
+
+    return 0;
+}
