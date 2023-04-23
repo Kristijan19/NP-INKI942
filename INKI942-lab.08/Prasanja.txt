@@ -1,0 +1,12 @@
+1.Koj e glaven grad na Makedonija?;   a.Bitola;  b.Skopje;  c.Ohrid;
+2.Koga Makedonija stanala nezavisna?;   a.8 septemvri;  b.1 maj;  c.24 maj;
+3.Koe od navedenite ezera e prirodno?;   a.Tikvesko;  b.Mladost;  c.Ohridsko;
+4.Koj e hemiskiot simbol za vodorod?;    a.C;  b.H;  c.Na;
+5.Koj e glaven grad na Italija?;     a.Rim;  b.Milano;  c.Verona;
+6.Od kade poteknuva Dante Aligieri?;   a.Germanija;  b.Spanija;  c.Italija;
+7.Koja e najdolga reka vo Evropa?;   a.Volga;   b.Nil;  c.Amazon;
+8.Kolku elementi ima vo Periodniot sistem?;   a.112;  b.118;  c.128;
+9.Koj od navedenite elementi se metali?; a.Fe; b.C; c.O; d.Zn;
+10.Koj od navedenite elementi se nemetali?; a.Ni; b.Au; c.O; d.C;
+11.Koj od elementite ne pripagaat vo prvata grupa (alaklni metali)?; a.Mn; b.Li; c.K; d.Hg;
+12.Koj od slednite jazici se koristat za dizajn na veb stranici?;  a.C; b.HTML; c.CSS; d.C++;
