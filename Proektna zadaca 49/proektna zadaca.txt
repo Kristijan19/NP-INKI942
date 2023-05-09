@@ -1,0 +1,53 @@
+//Kristijan Kondovski INKI942 zadaca 49
+#include <iostream>
+#include <map>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
+
+// Preku string se zadava ime na gradot, so int se zadava temperaturata
+struct Grad {
+  std::string ime;
+  int temperatura;
+};
+
+bool poTemperatura(const Grad& a, const Grad& b) {
+  return a.temperatura > b.temperatura;
+}
+
+int main() {
+  // Iminja na gradovite
+  std::string gradovi[] = {"Skopje", "Bitola", "Ohrid", "Struga", "Kumanovo", "Tetovo", "Gostivar", "Prilep"};
+  
+  //Vrednostite se pecatat na ekranot
+  srand(time(nullptr));
+  std::map<std::string, int> weather0805;
+  for (const std::string& grad : gradovi) {
+    int temperatura = rand() % 25 + 10; 
+    weather0805[grad] = temperatura;
+  }
+
+  // Elementite vo mapata se iterira eden po eden.
+  for (const auto& kv : weather0805) {
+    std::cout << kv.first << ": " << kv.second << "C" << std::endl;
+  }
+
+  // Se definira nov vektor od tip GRAD so ime gradovi_v.Vektorite vo C++ se dinamicki nizi od objekti od ist tip.
+  std::vector<Grad> gradovi_v;
+  for (const auto& kv : weather0805) {
+    Grad g;
+    g.ime = kv.first;
+    g.temperatura = kv.second;
+    gradovi_v.push_back(g);
+  }
+  std::sort(gradovi_v.begin(), gradovi_v.end(), poTemperatura);
+  std::cout << "Gradovi sortirani spored temperatura:" << std::endl;
+  for (const auto& grad : gradovi_v) {
+    std::cout << grad.ime << ": " << grad.temperatura << "C" << std::endl;
+  }
+  std::cout << "Gradovi so najvisoka temperatura: " << gradovi_v[0].ime << " (" << gradovi_v[0].temperatura << "C), " << gradovi_v[1].ime << " (" << gradovi_v[1].temperatura << "C)" << std::endl;
+
+  return 0;
+}
