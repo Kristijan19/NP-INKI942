@@ -1,0 +1,52 @@
+#include <iostream>
+#include <map>
+#include <algorithm>
+#include <string>
+#include <vector>
+using namespace std;
+int main()
+{
+    map<string, int> prognoza{
+        {"Bitola", 19},
+        {"Prilep", 17},
+        {"Kumanovo", 18},
+        {"Struga", 17},
+        {"Resen", 19},
+        {"Gevgelija", 24},
+        {"Berovo", 15},
+        {"Strumica", 21},
+    
+    };
+    // Se dopolnuvaat so 8 elementi od vrednost 0
+    while (prognoza.size() < 8) {
+        prognoza.insert(make_pair("Grad" + to_string(prognoza.size() + 1), 0));
+    }
+    //Pecatenje na mapata pred sortiranje
+    cout << "Prvicna mapa:" << endl;
+    for (const auto& elem : prognoza) {
+        cout << elem.first << " " << elem.second << "°C" << endl;
+    }
+    cout << endl;
+    //Sortiranje na mapata po vrednosta
+    auto comparator = [](const pair<string, int>& a, const pair<string, int>& b) {
+        return a.second < b.second;
+    };
+    vector<pair<string, int>> sorted_prognosis(prognoza.begin(), prognoza.end());
+    sort(sorted_prognosis.begin(), sorted_prognosis.end(), comparator);
+    // Se pecati sortiranata mapa
+    cout << "Sortirana mapa:" << endl;
+    for (const auto& elem : sorted_prognosis) {
+        cout << elem.first << " " << elem.second << "°C" << endl;
+    }
+    cout << endl;
+    //Se dodavaat  novi parovi
+    prognoza.insert({"INKI" + to_string(942), 19});
+    prognoza.insert({"Kristijan", 0110});
+    //Pecatenje na mapata po dodavanje na novi parovi
+    cout << "Mapa so novite parovi:" << endl;
+    for (const auto& elem : prognoza) {
+        cout << elem.first << " " << elem.second << "°C" << endl;
+    }
+    cout << endl;
+    return 0;
+}
